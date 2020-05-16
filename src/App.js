@@ -47,9 +47,7 @@ class App extends Component {
     }
 
     render() {
-        const value = {
-            GreatestGrandChild: this.state.GreatestGrandChild
-        }
+        const value = {...this.state.GreatestGrandChild}
         return(
             <AppContext.Provider value={value}>
                 <div>
