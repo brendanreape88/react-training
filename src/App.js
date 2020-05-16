@@ -33,6 +33,13 @@ class App extends Component {
         this.setState({App: newApp});
     }
 
+    handleNestedClick(event) {
+        alert('I was clicked in the GreatGrandChild component')
+        let oldApp = {...this.state.App};
+        oldApp.deeptext = "This is being passed alllll the way down"
+        this.setState({App: oldApp})
+    }
+
     render() {
         
         return(
@@ -40,10 +47,12 @@ class App extends Component {
                 <h1>{this.state.App.name}</h1>
                 <h3>{this.state.App.text}</h3>
                 <h5>{this.state.App.deepText}</h5>
+                <button onClick={this.handleClick}>change text</button>
                 <Child 
                     name={this.state.Child.name}
                     text={this.state.Child.text}
                     deepText={this.state.App.deepText}
+                    onClick={this.handleNestedClick}
                 />
             </div>
             
