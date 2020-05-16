@@ -47,12 +47,12 @@ class App extends Component {
         let oldApp = {...this.state.App};
         oldApp.deepText = "This is being passed alllll the way down"
         this.setState({App: oldApp})
-        console.log(this.state.App.deepText)
     }
 
     handleTruthiness(event) {
         alert('I was clicked!')
-        this.setState({ TorF: false })
+        let TorF = this.state.TorF
+        this.setState({TorF: !TorF})
     }
 
     render() {
