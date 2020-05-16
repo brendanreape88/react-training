@@ -1,46 +1,54 @@
-import React from 'react'
-import Card from './card'
-/*import Data from './data'*/
-import Profile from './Profile'
+import React, { Component } from 'react'
+import Child from './Child'
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      isTrue: true,
-      /*profileData: Data,*/
+class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            App: {
+                name: "App",
+                text: "I'm the App component.",
+                deepText: "This is being passed alllll the way down"
+            },
+            Child: {
+                name: "Child",
+                text: "I'm the child component."
+            },
+            GrandChild: {
+                name: "GrandChild",
+                text: "I'm the grandchild component."
+            },
+            GreatGrandChild: {
+                name: "GreatGrandChild",
+                text: "I'm the great-grandchild component."
+            },  
+        }
+        this.handleClick = this.handleClick.bind(this)
     }
-  }
 
-  render() {
-    let wordDisplay
-    if(this.state.isTrue) {
-      wordDisplay = "Hi."
-    } else {
-      wordDisplay = "Bye."
+    handleClick(event) {
+        alert('I was clicked!')
+        let newApp = {...this.state.App};
+        newApp.deepText = "This text has changed!";
+        this.setState({App: newApp});
     }
 
-    const STORE = [
-      {
-        name: "Byron",
-        gen: "male"
-      },
-      {
-        name: "Kate",
-        gen: "female"
-      }
-    ]
-
-    const storeInfo = STORE.map(info => <Profile info={info} />)
-
-    return(
-      <div>
-        <h1>{wordDisplay}</h1>
-        <Card />
-        {storeInfo}
-      </div>
-    )
-  }
+    render() {
+        
+        return(
+            <div>
+                <h1>{this.state.App.name}</h1>
+                <h3>{this.state.App.text}</h3>
+                <h5>{this.state.App.deepText}</h5>
+                <Child 
+                    name={this.state.Child.name}
+                    text={this.state.Child.text}
+                    deepText={this.state.App.deepText}
+                />
+            </div>
+            
+        )
+    }
 }
 
 export default App
