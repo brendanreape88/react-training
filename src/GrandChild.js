@@ -12,7 +12,7 @@ class GrandChild extends Component {
                     name="GreatGrandChild"
                     text="I'm a great-grandchild component." 
                     deepText={this.props.deepText}
-                    onClick={this.props.handleNestedClick}
+                    handleNestedClick={this.props.handleNestedClick}
                 />
             </div>
         )

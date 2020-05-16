@@ -10,7 +10,9 @@ class GreatGrandChild extends Component {
                 <h3>{this.props.text}</h3>
                 <h5>{this.props.deepText}</h5>
                 <button onClick={this.props.handleNestedClick}>change text</button>
-                <GreatestGrandChild />
+                <GreatestGrandChild 
+                    handleTruthiness={this.props.handleTruthiness}
+                />
             </div>
         )
     }

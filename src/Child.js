@@ -17,7 +17,7 @@ class Child extends Component {
                     name="GrandChild"
                     text="I'm a grandchild component."
                     deepText={this.props.deepText}
-                    onClick={this.props.handleNestedClick}
+                    handleNestedClick={this.props.handleNestedClick}
                 />
             </div>
         )
