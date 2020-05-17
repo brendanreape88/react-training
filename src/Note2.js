@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import AppContext from '.AppContext'
+import AppContext from './AppContext'
 
-class Note extends Component {
+class Note2 extends Component {
     static contextType = AppContext
 
     handleClickDelete(event) {
@@ -23,4 +23,4 @@ class Note extends Component {
     }
 }
 
-export default Note
+export default Note2

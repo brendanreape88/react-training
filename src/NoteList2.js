@@ -21,7 +21,6 @@ class NoteList2 extends Component {
                         </li>
                     )}
                 </ul>
-                <button>add a note</button>
             </div>
         )
     }

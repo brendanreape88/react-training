@@ -4,6 +4,7 @@ import AppContext from './AppContext'
 import PropsChildrenExample from './PropsChildrenExample'
 import NoteList from './NoteList'
 import NoteList2 from './NoteList2'
+import AddNoteForm from './AddNoteForm'
 
 class App extends Component {
     constructor(props) {
@@ -52,6 +53,7 @@ class App extends Component {
         this.handleClick = this.handleClick.bind(this)
         this.handleNestedClick = this.handleNestedClick.bind(this)
         this.handleTruthiness = this.handleTruthiness.bind(this)
+        this.handleAddNote = this.handleAddNote.bind(this)
     }
 
 
@@ -79,6 +81,21 @@ class App extends Component {
         })
     }
 
+    handleAddNote = (newNoteName, newNoteMessage, newNoteId) => {
+        alert('The submit button was clicked!')
+        const newNoteList = [
+            ...this.state.Notes,
+            {
+                name: newNoteName,
+                id: newNoteId,
+                content: newNoteMessage
+            }
+        ]
+        this.setState({
+            Notes: newNoteList
+        })
+    }
+
     render() {
         {/*const value = {...this.state}*/}
         const value = {
@@ -89,7 +106,8 @@ class App extends Component {
             GreatestGrandChild: this.state.GreatestGrandChild,
             TorF: this.state.TorF,
             Notes: this.state.Notes,
-            handleClickDelete: this.handleClickDelete
+            handleClickDelete: this.handleClickDelete,
+            handleAddNote: this.handleAddNote
         };
         return(
             <AppContext.Provider value={value}>
@@ -119,6 +137,7 @@ class App extends Component {
                         handleClickDelete={this.handleClickDelete}
                     />
                     <NoteList2 />
+                    <AddNoteForm />
                 </div>
             </AppContext.Provider>
         )
