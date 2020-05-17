@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
+import AppContext from '.AppContext'
 
 class Note extends Component {
+    static contextType = AppContext
+
     handleClickDelete(event) {
         event.preventDefault()
         const noteId = this.props.id
@@ -12,7 +15,7 @@ class Note extends Component {
                 <h1>{this.props.name}</h1>
                 <h3>{this.props.content}</h3>
                 <button 
-                    onClick={()=>this.props.handleClickDelete(this.props.id)}>
+                    onClick={()=>this.context.handleClickDelete(this.props.id)}>
                         delete me
                 </button>
             </div>

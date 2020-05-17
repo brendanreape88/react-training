@@ -5,7 +5,12 @@ const AppContext = React.createContext({
     Child: {},
     GrandChild: {},
     GreatGrandChild: {},
-    GreatestGrandChild: {}
+    GreatestGrandChild: {},
+    //Do you need these empty objects in here? 
+    //What about for the note data?
+    //You DO need this empty function for
+    //handleClickDelete though!
+    handleClickDelete: () => {},
 })
 
 export default AppContext

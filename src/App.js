@@ -3,6 +3,7 @@ import Child from './Child'
 import AppContext from './AppContext'
 import PropsChildrenExample from './PropsChildrenExample'
 import NoteList from './NoteList'
+import NoteList2 from './NoteList2'
 
 class App extends Component {
     constructor(props) {
@@ -71,14 +72,25 @@ class App extends Component {
         this.setState({TorF: !TorF})
     }
 
-    handleClickDelete(noteId) {
+    handleClickDelete = (noteId) => {
+        alert('Delete button was clicked')
         this.setState({
             Notes: this.state.Notes.filter(note => note.id !== noteId)
         })
     }
 
     render() {
-        const value = {...this.state}
+        {/*const value = {...this.state}*/}
+        const value = {
+            App: this.state.App,
+            Child: this.state.Child,
+            GrandChild: this.state.GrandChild,
+            GreatGrandChild: this.state.GreatGrandChild,
+            GreatestGrandChild: this.state.GreatestGrandChild,
+            TorF: this.state.TorF,
+            Notes: this.state.Notes,
+            handleClickDelete: this.handleClickDelete
+        };
         return(
             <AppContext.Provider value={value}>
                 <div>
@@ -95,17 +107,18 @@ class App extends Component {
                     />
                     <PropsChildrenExample>
                         <div>
-                            <h3>Hey there's something here!</h3>
-                            <h3>And there's something else here!</h3>
-                            <h3>Finally, a different thing here.</h3>
+                            <h3>Props.children example text!</h3>
+                            <h3>More example text!</h3>
+                            <h3>Even more example text!</h3>
                         </div>
                     </PropsChildrenExample>
-                    <PropsChildrenExample>Props.Children text 2</PropsChildrenExample>
-                    <PropsChildrenExample>Props.Children text 3</PropsChildrenExample>
+                    <PropsChildrenExample>Wow, even more example text!</PropsChildrenExample>
+                    <PropsChildrenExample>Enough with the example text.</PropsChildrenExample>
                     <NoteList 
                         noteData={this.state.Notes}
                         handleClickDelete={this.handleClickDelete}
                     />
+                    <NoteList2 />
                 </div>
             </AppContext.Provider>
         )

@@ -1,20 +1,22 @@
 import React, {Component} from 'react'
-import Note from './Note'
+import Note2 from './Note2'
+import AppContext from './AppContext'
 
-class NoteList extends Component {
+class NoteList2 extends Component {
+    static contextType = AppContext
+    
     render() {
-        const noteGenerator = this.props.noteData
+        const noteGenerator = this.context.Notes
         return (
             <div>
-                <h3>These notes + delete buttons use prop-drilling!</h3>
+                <h3>These notes + delete buttons use context!</h3>
                 <ul>
                     {noteGenerator.map(data => 
                         <li key={data.id}>
-                            <Note  
+                            <Note2  
                                 id={data.id} 
                                 name={data.name}
-                                content={data.content}
-                                handleClickDelete={this.props.handleClickDelete} 
+                                content={data.content} 
                             />
                         </li>
                     )}
@@ -25,4 +27,4 @@ class NoteList extends Component {
     }
 }
 
-export default NoteList
+export default NoteList2
