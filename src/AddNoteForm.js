@@ -21,9 +21,10 @@ class AddNoteForm extends Component {
 
     onSubmitForm = (event) => {
         event.preventDefault()
-        const newNoteName = this.context.handleAddNote(event.target.newNoteName.value)
-        const newNoteId = this.context.handleAddNote(event.target.newNoteId.value)
-        const newNoteMessage = this.context.handleAddNote(event.target.newNoteMessage.value)
+        const newNoteName = event.target.newNoteName.value
+        const newNoteId = event.target.newNoteId.value
+        const newNoteMessage = event.target.newNoteMessage.value
+        this.context.handleAddNote(newNoteName, newNoteId, newNoteMessage)
     }
 
     render() {
@@ -31,7 +32,7 @@ class AddNoteForm extends Component {
             <div>
                 <button onClick={this.handleClick}>add note</button>
                     {this.state.boolShowForm &&
-                        <form onSubmit={this.context.handleAddNote}>
+                        <form onSubmit={this.onSubmitFrom}>
                             <input 
                                 type="text" 
                                 placeholder="name"
