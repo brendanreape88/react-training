@@ -11,6 +11,7 @@ const AppContext = React.createContext({
     //You DO need this empty function for
     //handleClickDelete though!
     handleClickDelete: () => {},
+    handleAddNote: () => {}
 })
 
 export default AppContext

@@ -5,6 +5,9 @@ import PropsChildrenExample from './PropsChildrenExample'
 import NoteList from './NoteList'
 import NoteList2 from './NoteList2'
 import AddNoteForm from './AddNoteForm'
+import {Route, Link} from 'react-router-dom'
+import PoemList from './PoemList'
+import PoemDisplayer from './PoemDisplayer'
 
 class App extends Component {
     constructor(props) {
@@ -47,6 +50,23 @@ class App extends Component {
                     name: "note3",
                     id: 3,
                     content: "Hi once more."
+                }
+            ],
+            Haikus: [
+                {
+                    name: "The Old Pond",
+                    id: 1,
+                    text: "An old silent pond---A frog jumps into the pond---Splash! Silence again"
+                },
+                {
+                    name: "A Poppy Blooms",
+                    id: 2,
+                    text: "I write, erase, rewrite---Erase again, and then---A poppy blossoms"
+                },
+                {
+                    name: "Refrigerator",
+                    id: 3,
+                    text: "Haikus are easy---But sometimes they don't make sense---Refigerator"
                 }
             ]  
         }
@@ -107,7 +127,8 @@ class App extends Component {
             TorF: this.state.TorF,
             Notes: this.state.Notes,
             handleClickDelete: this.handleClickDelete,
-            handleAddNote: this.handleAddNote
+            handleAddNote: this.handleAddNote,
+            Haikus: this.state.Haikus
         };
         return(
             <AppContext.Provider value={value}>
@@ -138,6 +159,15 @@ class App extends Component {
                     />
                     <NoteList2 />
                     <AddNoteForm />
+                    <h1>Below is BrowserRouter practice.</h1>
+                    <Route
+                        exact path='/'
+                        component={PoemList}
+                    />
+                    <Route
+                        path='/poem/:poemId'
+                        component={PoemDisplayer}
+                    />
                 </div>
             </AppContext.Provider>
         )

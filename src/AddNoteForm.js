@@ -30,30 +30,35 @@ class AddNoteForm extends Component {
     render() {
         return (
             <div>
+                <h3>This "add note" button uses conditional rendering to show a form.</h3>
                 <button onClick={this.handleClick}>add note</button>
                     {this.state.boolShowForm &&
-                        <form onSubmit={this.onSubmitFrom}>
-                            <input 
-                                type="text" 
-                                placeholder="name"
-                                name="newNoteName"
-                            >
-                            </input>
-                            <input 
-                                type="text" 
-                                placeholder="message"
-                                name="newNoteMessage"
-                            >
-                            </input>
-                            <input
-                                tyoe="text"
-                                placeholder="id number"
-                                name="newNoteId"
-                            >
-                            </input>
-                            <button>submit</button>
-                        </form>
+                        <>
+                            <form onSubmit={this.onSubmitFrom}>
+                                <input 
+                                    type="text" 
+                                    placeholder="name"
+                                    name="newNoteName"
+                                >
+                                </input>
+                                <input 
+                                    type="text" 
+                                    placeholder="message"
+                                    name="newNoteMessage"
+                                >
+                                </input>
+                                <input
+                                    tyoe="text"
+                                    placeholder="id number"
+                                    name="newNoteId"
+                                >
+                                </input>
+                                <button>submit</button>
+                            </form>
+                            <h5>^^^This form uses context to update state.^^^</h5>
+                        </>
                     }
+                    
             </div>
         )
     }
