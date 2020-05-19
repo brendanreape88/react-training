@@ -19,7 +19,7 @@ class GreatestGrandChild extends Component {
                 <h3>Hi. I am not receiving props from any parent component.</h3>
                 <h5>{this.context.GreatestGrandChild.text}</h5>
                 <h1>{yeay}</h1>
-                <button onClick={this.props.handleTruthiness}>change truthiness</button>
+                <button onClick={this.props.handleTruthiness}>change truthiness in App.js</button>
             </div>
         )
     }

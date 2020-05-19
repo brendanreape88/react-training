@@ -6,7 +6,7 @@ class PoemDisplayer extends Component {
 
     render() {
         const poem = this.context.Haikus.find(p => 
-            p.id === this.context.Haikus.id)
+            p.id === this.props.match.params.poemId)
         return (
             <div>
                 <h3>{poem.name}</h3>

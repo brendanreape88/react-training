@@ -34,7 +34,7 @@ class AddNoteForm extends Component {
                 <button onClick={this.handleClick}>add note</button>
                     {this.state.boolShowForm &&
                         <>
-                            <form onSubmit={this.onSubmitFrom}>
+                            <form onSubmit={this.onSubmitForm}>
                                 <input 
                                     type="text" 
                                     placeholder="name"
